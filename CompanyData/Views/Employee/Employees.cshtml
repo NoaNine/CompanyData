@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Employee";
+}
+<form class="form-inline">
+    <label>Оберіть відділ:</label>
+    <select name="departmentId" class="form-control">
+        @foreach (Department department in Model.Departments)
+        {
+            <option value="@department.DepartmentID">@department.Name</option>
+        }
+    </select>
+    <label>Оберіть посаду:</label>
+    <select name="positionName" class="form-control">
+        @foreach (Position position in Model.Positions)
+        {
+            <option value="@position.Name">@position.Name</option>
+        }
+    </select>
+    <input type="submit" value="Фільтрувати"/>
+</form>
+<table class="table">
+    <tr>
+        <th>Id співробітника</th>
+        <th>Ім'я'</th>
+        <th>Прізвище</th>
+        <th>По батькові</th>
+        <th>Посада</th>
+        <th>Зарплатня</th>
+        <th>Id департаменту</th>
+        <th>Назва департаменту</th>
+    </tr>
+
+    @foreach (var employee in Model.Employees)
+    {
+        <tr>
+            <td>@employee.EmployeeID</td>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.PatronymicName</td>
+            <td>@employee.Position</td>
+            <td>@employee.CurrentSalary</td>
+            <td>@employee.DepartmentID</td>
+            <td>@employee.Department.Name</td>
+            <td>
+                <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.EmployeeID">Редагувати</a> |
+                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeID">Видалити</a>
+            </td>
+        </tr>
+
+    }
+</table>

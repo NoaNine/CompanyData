@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Salary";
+}
+
+<form class="form-inline">
+    <label>Оберіть відділ:</label>
+    <select name="departmentId" class="form-control">
+        @foreach (Department department in Model.Departments)
+        {
+            <option value="@department.DepartmentID">@department.Name</option>
+        }
+    </select>
+    <input type="submit" value="Фільтрувати" />
+</form>
+<table class="table">
+    <tr>
+        <th>Ім'я'</th>
+        <th>Прізвище</th>
+        <th>Посада</th>
+        <th>Назва департаменту</th>
+        <th>Зарплатня</th>
+    </tr>
+
+    @foreach (var employee in Model.Employees)
+    {
+        <tr>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.Position</td>
+            <td>@employee.Department.Name</td>
+            <td>@employee.CurrentSalary</td>
+        </tr>
+    }
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Загальна сума окладів</th>
+        <td>@Model.SumSalary</td>
+    </tr>
+</table>

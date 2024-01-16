@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Company";
+}
+
+<table class="table">
+    <tr>
+        <th>Id компанії</th>
+        <th>Назва компанії</th>
+        <th>Опис</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CompanyID</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+</table>
