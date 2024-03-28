@@ -1,7 +1,7 @@
 
 The project was created by Oleksandr Havlytskyi for educational purposes.
 ____
-**Technology or principles have been mastered( or repeated):** ASP.NET Core MVC, Razor Pages, DI, MSSQL Serve, Drapper, ADO.NET, DAO. 
+**Technology or principles have been mastered( or repeated):** ASP.NET Core MVC, Razor Pages, DI, MSSQL Serve, Dapper, ADO.NET, DAO. 
 ____
 **The purpose of the project:** Learn to create a web application(website) to store/get data in a database not use the framework.
 
